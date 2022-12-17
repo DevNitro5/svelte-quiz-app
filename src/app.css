@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-Karla p-[1rem_1.75rem] text-gray-800 bg-slate-100;
+  }
+}
+
+@layer components {
+  .start-quiz-btn {
+    @apply text-white bg-gradient-to-l from-[#ffc312] via-[#ee5a24] to-[#ffc312] bg-[length:200%] transition-all ease-linear duration-500 hover:bg-right hover:scale-95;
+  }
+
+  .quizzical {
+    @apply font-bold bg-gradient-to-r from-orange-600 to-orange-500 text-transparent bg-clip-text;
+  }
+
+  .quiz {
+    @apply mt-8 mb-12 w-fit md:pl-7 space-y-12;
+  }
+
+  .quiz-question {
+    @apply font-bold text-lg max-w-xl leading-[1.35];
+  }
+
+  .quiz-option {
+    @apply border-2 border-gray-400 px-3 py-2 rounded-md font-semibold;
+  }
+
+  .check-answers-btn {
+    @apply py-3 px-6 mt-5 text-white rounded-lg  bg-gradient-to-r from-emerald-500 to-lime-600 transition-all duration-300 ease-in-out hover:scale-95 font-bold;
+  }
+
+  
+
+  .inCorrect {
+    @apply bg-red-400 opacity-60;
+  }
+
+  .correct {
+    @apply bg-green-500 text-white;
+  }
+}
