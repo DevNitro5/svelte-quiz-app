@@ -7,7 +7,7 @@
   let isChecked = false;
   let isAllQuestionAnswered = false;
   let promise = fetchData();
-  // let score = 0;
+  let score = 0;
   let quizLength = 0;
 
   async function fetchData(): Promise<QuizData[]> {
@@ -36,12 +36,11 @@
   {#await promise}
     <Spinner />
   {:then quizData}
-    <Quiz {isChecked} {quizData} bind:isAllQuestionAnswered />
+    <Quiz {isChecked} {quizData} bind:isAllQuestionAnswered bind:score />
   {/await}
 
   {#if isChecked}
-    <!-- need to fix this -->
-    <p>You scored 4/{quizLength} correct answers</p>
+    <p>You scored {score}/{quizLength} correct answers</p>
     <StartQuizButton
       className="block md:mx-auto"
       on:startQuiz={handleStartQUiz}

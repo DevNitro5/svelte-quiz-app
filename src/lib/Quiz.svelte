@@ -5,7 +5,7 @@
   export let quizData: QuizData[];
   export let isChecked: boolean;
   export let isAllQuestionAnswered: boolean;
-  // export let score: number;
+  export let score: number;
 
   let userAnswers: (string | null)[] = Array(quizData.length).fill(null);
 
@@ -18,10 +18,12 @@
     userAnswers = newAnswered;
   }
 
-  //   $: console.log(userAnswers);
-
   $: isAllQuestionAnswered = userAnswers.every(Boolean);
-
+  $: if (isAllQuestionAnswered) {
+    score = userAnswers.filter(
+      (userAnswer, i) => userAnswer === quizData[i].correct_answer
+    ).length;
+  }
 </script>
 
 {#each quizData as quiz, i}
