@@ -20,6 +20,7 @@
   }
 
   function handleStartQUiz() {
+    console.log("hello");
     promise = fetchData();
     isChecked = false;
   }
@@ -41,10 +42,7 @@
 
   {#if isChecked}
     <p>You scored {score}/{quizLength} correct answers</p>
-    <StartQuizButton
-      className="block md:mx-auto"
-      on:startQuiz={handleStartQUiz}
-    />
+    <StartQuizButton className="block md:mx-auto" on:click={handleStartQUiz} />
   {/if}
 
   {#if isAllQuestionAnswered}
